@@ -1,7 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 
-class HomeView extends PolymerElement {
+class DetailView extends PolymerElement {
     static get template() {
         return html`
             <style include="shared-styles">
@@ -14,14 +14,14 @@ class HomeView extends PolymerElement {
 
             <div class="card">
                 <div class="circle">
-                    1
+                    2
                 </div>
                 <h1>
-                    Jeugdhulp Risico Indicatie Applicatie
+                    View Two
                 </h1>
             </div>
         `
     }
 }
 
-window.customElements.define('ri-home', HomeView)
+window.customElements.define('ri-detail', DetailView)
