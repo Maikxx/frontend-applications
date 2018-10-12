@@ -42,7 +42,7 @@ class MyApp extends PolymerElement {
             </app-route>
 
 
-            <app-header slot="header" condenses="" reveals="">
+            <app-header>
                 <app-toolbar>
                     <div main-title="Jeugdzorg Risico Indicatie Applicatie">
                         Jeugdzorg Risico Indicatie Applicatie
