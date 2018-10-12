@@ -1,16 +1,10 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js'
-import '@polymer/app-layout/app-drawer/app-drawer.js'
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js'
 import '@polymer/app-layout/app-header/app-header.js'
-import '@polymer/app-layout/app-header-layout/app-header-layout.js'
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js'
 import '@polymer/app-layout/app-toolbar/app-toolbar.js'
 import '@polymer/app-route/app-location.js'
 import '@polymer/app-route/app-route.js'
 import '@polymer/iron-pages/iron-pages.js'
-import '@polymer/iron-selector/iron-selector.js'
-import '@polymer/paper-icon-button/paper-icon-button.js'
 import './components/ri-icons.js'
 
 // Gesture events like tap and track generated from touch will not be
@@ -26,40 +20,18 @@ class MyApp extends PolymerElement {
         return html`
             <style>
                 :host {
-                    --app-primary-color: #4285f4;
-                    --app-secondary-color: black;
+                    --app-primary-color: #407076;
+                    --app-secondary-color: #97B1A6;
+                    --app-tertiary-color: #698996;
+                    --app-text-color: black;
 
                     display: block;
-                }
-
-                app-drawer-layout:not([narrow]) [drawer-toggle] {
-                    display: none;
                 }
 
                 app-header {
                     color: #fff;
+                    padding-left: 24px;
                     background-color: var(--app-primary-color);
-                }
-
-                app-header paper-icon-button {
-                    --paper-icon-button-ink-color: white;
-                }
-
-                .drawer-list {
-                margin: 0 20px;
-                }
-
-                .drawer-list a {
-                    display: block;
-                    padding: 0 16px;
-                    text-decoration: none;
-                    color: var(--app-secondary-color);
-                    line-height: 40px;
-                }
-
-                .drawer-list a.iron-selected {
-                    color: black;
-                    font-weight: bold;
                 }
             </style>
 
@@ -69,42 +41,19 @@ class MyApp extends PolymerElement {
             <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
             </app-route>
 
-            <app-drawer-layout fullbleed="" narrow="{{narrow}}">
-                <!-- Drawer content -->
-                <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-                    <app-toolbar>
-                        Menu
-                    </app-toolbar>
 
-                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        <a name="home" href="[[rootPath]]home">
-                            Home
-                        </a>
-                        <a name="view2" href="[[rootPath]]view2">
-                            View Two
-                        </a>
-                    </iron-selector>
-                </app-drawer>
+            <app-header slot="header" condenses="" reveals="">
+                <app-toolbar>
+                    <div main-title="Jeugdzorg Risico Indicatie Applicatie">
+                        Jeugdzorg Risico Indicatie Applicatie
+                    </div>
+                </app-toolbar>
+            </app-header>
 
-                <!-- Main content -->
-                <app-header-layout has-scrolling-region="">
-
-                <app-header slot="header" condenses="" reveals="" effects="waterfall">
-                    <app-toolbar>
-                        <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-                        <div main-title="">
-                            Jeugdzorg Risico Indicatie Applicatie
-                        </div>
-                    </app-toolbar>
-                </app-header>
-
-                <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-                    <ri-home name="home"></ri-home>
-                    <my-view2 name="view2"></my-view2>
-                    <ri-notFound name="notFound"></ri-notFound>
-                </iron-pages>
-                </app-header-layout>
-            </app-drawer-layout>
+            <iron-pages selected="[[page]]" attr-for-selected="name" role="div">
+                <ri-home name="home"></ri-home>
+                <ri-not-found name="not-found"></ri-not-found>
+            </iron-pages>
         `
     }
 
@@ -130,18 +79,13 @@ class MyApp extends PolymerElement {
         // Show the corresponding page according to the route.
         //
         // If no page was found in the route data, page will be an empty string.
-        // Show 'home' in that case. And if the page doesn't exist, show 'notFound'.
+        // Show 'home' in that case. And if the page doesn't exist, show 'not-found'.
         if (!page) {
             this.page = 'home'
-        } else if (['home', 'view2'].indexOf(page) !== -1) {
+        } else if (['home'].indexOf(page) !== -1) {
             this.page = page
         } else {
-            this.page = 'notFound'
-        }
-
-        // Close a non-persistent drawer when the page & route are changed.
-        if (!this.$.drawer.persistent) {
-            this.$.drawer.close()
+            this.page = 'not-found'
         }
     }
 
@@ -154,10 +98,7 @@ class MyApp extends PolymerElement {
             case 'home':
                 import('./views/ri-home.js')
                 break
-            case 'view2':
-                import('./my-view2.js')
-                break
-            case 'notFound':
+            case 'not-found':
                 import('./views/ri-notFound.js')
                 break
         }

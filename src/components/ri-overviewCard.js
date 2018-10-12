@@ -1,27 +1,26 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 
-class DetailView extends PolymerElement {
+class OverviewCard extends PolymerElement {
     static get template() {
         return html`
             <style include="shared-styles">
                 :host {
                     display: block;
-
-                    padding: 10px;
+                    padding: 12px;
                 }
             </style>
 
-            <div class="card">
-                <div class="circle">
-                    2
-                </div>
+            <section class="card">
                 <h1>
-                    View Two
+                    Berekend risico op een zware maatregel
                 </h1>
-            </div>
+                <h2>
+                    0.16%
+                </h2>
+            </section>
         `
     }
 }
 
-window.customElements.define('ri-detail', DetailView)
+window.customElements.define('ri-overview-card', OverviewCard)

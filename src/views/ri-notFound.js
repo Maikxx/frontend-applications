@@ -6,8 +6,7 @@ class NotFoundView extends PolymerElement {
 			<style>
 				:host {
 					display: block;
-
-					padding: 10px 20px;
+					padding: 12px 24px;
 				}
 			</style>
 
@@ -16,4 +15,4 @@ class NotFoundView extends PolymerElement {
 	}
 }
 
-window.customElements.define('ri-notFound', NotFoundView)
+window.customElements.define('ri-not-found', NotFoundView)
