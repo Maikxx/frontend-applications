@@ -30,7 +30,7 @@ class MyApp extends PolymerElement {
 
                 app-header {
                     color: #fff;
-                    padding-left: 24px;
+                    padding-left: 12px;
                     background-color: var(--app-primary-color);
                 }
             </style>
@@ -44,9 +44,10 @@ class MyApp extends PolymerElement {
 
             <app-header>
                 <app-toolbar>
-                    <div main-title="Jeugdzorg Risico Indicatie Applicatie">
+                    <h1 main-title="Jeugdzorg Risico Indicatie Applicatie">
                         Jeugdzorg Risico Indicatie Applicatie
-                    </div>
+                    </h1>
+                    <h2>%</h2>
                 </app-toolbar>
             </app-header>
 

@@ -5,6 +5,11 @@ $_documentContainer.innerHTML = `
     <dom-module id="shared-styles">
         <template>
             <style>
+                .section {
+                    background-color: white;
+                    padding: 0 24px;
+                }
+
                 .card {
                     margin: 24px;
                     padding: 12px;
@@ -27,9 +32,23 @@ $_documentContainer.innerHTML = `
                 }
 
                 h1 {
-                    margin: 16px 0;
                     color: #212121;
                     font-size: 22px;
+                    margin: 0;
+                }
+
+                .row {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                .row > * {
+                    flex: 2;
+                }
+
+                .row > label {
+                    flex: 1;
                 }
             </style>
         </template>
