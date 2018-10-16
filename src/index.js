@@ -5,7 +5,6 @@ import '@polymer/app-layout/app-toolbar/app-toolbar.js'
 import '@polymer/app-route/app-location.js'
 import '@polymer/app-route/app-route.js'
 import '@polymer/iron-pages/iron-pages.js'
-import './components/ri-icons.js'
 import '@polymer/iron-selector/iron-selector.js'
 
 // Gesture events like tap and track generated from touch will not be
@@ -15,6 +14,62 @@ setPassiveTouchGestures(true)
 // Set Polymer's root path to the same value we passed to our service worker
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath)
+
+window.addEventListener('load', () => {
+    const data = window.localStorage.getItem('data') || []
+
+    if (!data.length > 0) {
+        const startData = [
+            {
+                'id': '1',
+                'education': {
+                    'education-type': '',
+                    'education-level': '',
+                    'education-change': '',
+                    'education-quiter': '',
+                    'education-level-father': '',
+                    'education-level-mother': '',
+                },
+                'general': {
+                    'first-name': '',
+                    'last-name': '',
+                    'gender': '',
+                    'age-child': '',
+                    'age-mother': '',
+                    'age-father': '',
+                    'age-difference-parents': '',
+                    'origin-parents': '',
+                    'guidance': '',
+                },
+                'housing': {
+                    'home-type': '',
+                    'situational-type': '',
+                },
+                'justice': {
+                    'child-suspected-in-crime': '',
+                    'child-in-halt': '',
+                    'parents-suspected-in-crime': '',
+                    'father-suspected-in-crime': '',
+                    'mother-suspected-in-crime': '',
+                },
+                'relational': {
+                    'parents-divorced': '',
+                },
+                'mental': {
+                    'known-at-guidance-help': '',
+                },
+                'society': {
+                    'participation-father': '',
+                    'participation-mother': '',
+                    'socio-father': '',
+                    'socio-mother': '',
+                }
+            }
+        ]
+
+        window.localStorage.setItem('data', JSON.stringify(startData))
+    }
+})
 
 class MyApp extends PolymerElement {
     static get template() {
@@ -63,6 +118,7 @@ class MyApp extends PolymerElement {
                     text-decoration: none;
                 }
 
+                .drawer-list a.iron-selected,
                 .drawer-list a:hover {
                     text-decoration: underline;
                 }
@@ -99,12 +155,6 @@ class MyApp extends PolymerElement {
                             </a>
                             <a name="mental" href="[[rootPath]]mental">
                                 Geestelijke gezondheid
-                            </a>
-                            <a name="housing" href="[[rootPath]]housing">
-                                Huisvesting
-                            </a>
-                            <a name="relational" href="[[rootPath]]relational">
-                                Huiselijke relaties
                             </a>
                             <a name="society" href="[[rootPath]]society">
                                 Maatschappelijke participatie

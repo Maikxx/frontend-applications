@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class GeneralInputCollection extends PolymerElement {
     static get template() {
@@ -24,7 +26,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="gender">
                         Geslacht
                     </label>
-                    <select name="gender" id="gender">
+                    <select on-change="onChange" name="gender" id="gender">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -41,7 +43,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="age-child">
                         Leeftijd van het kind
                     </label>
-                    <select name="age-child" id="age-child">
+                    <select on-change="onChange" name="age-child" id="age-child">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -67,7 +69,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="age-mother">
                         Leeftijd moeder bij geboorte
                     </label>
-                    <select name="age-mother" id="age-mother">
+                    <select on-change="onChange" name="age-mother" id="age-mother">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -96,7 +98,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="age-father">
                         Leeftijd vader bij geboorte
                     </label>
-                    <select name="age-father" id="age-father">
+                    <select on-change="onChange" name="age-father" id="age-father">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -125,7 +127,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="age-difference-parents">
                         Leeftijdsverschil tussen ouders
                     </label>
-                    <select name="age-difference-parents" id="age-difference-parents">
+                    <select on-change="onChange" name="age-difference-parents" id="age-difference-parents">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -142,7 +144,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="origin-parents">
                         Herkomst ouders
                     </label>
-                    <select name="origin-parents" id="origin-parents">
+                    <select on-change="onChange" name="origin-parents" id="origin-parents">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -162,7 +164,7 @@ class GeneralInputCollection extends PolymerElement {
                     <label for="guidance">
                         Hulptraject
                     </label>
-                    <select name="guidance" id="guidance">
+                    <select on-change="onChange" name="guidance" id="guidance">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -176,6 +178,38 @@ class GeneralInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'general')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'gender',
+            'age-child',
+            'age-mother',
+            'age-father',
+            'age-difference-parents',
+            'origin-parents',
+            'guidance',
+        ]
+
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('general', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 

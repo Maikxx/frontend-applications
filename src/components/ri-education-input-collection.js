@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class EducationInputCollection extends PolymerElement {
     static get template() {
@@ -24,7 +26,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-type">
                         Soort onderwijs van kind
                     </label>
-                    <select name="education-type" id="education-type">
+                    <select on-change="onChange" name="education-type" id="education-type">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -44,7 +46,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-level">
                         Huidig onderwijsniveau van kind
                     </label>
-                    <select name="education-level" id="education-level">
+                    <select on-change="onChange" name="education-level" id="education-level">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -73,7 +75,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-change">
                         Verandering in het voortgezet onderwijsniveau
                     </label>
-                    <select name="education-change" id="education-change">
+                    <select on-change="onChange" name="education-change" id="education-change">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -93,7 +95,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-quiter">
                         Voortijdig schoolverlater
                     </label>
-                    <select name="education-quiter" id="education-quiter">
+                    <select on-change="onChange" name="education-quiter" id="education-quiter">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -119,7 +121,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-level-father">
                         Hoogst behaalde onderwijsniveau vader
                     </label>
-                    <select name="education-level-father" id="education-level-father">
+                    <select on-change="onChange" name="education-level-father" id="education-level-father">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -145,7 +147,7 @@ class EducationInputCollection extends PolymerElement {
                     <label for="education-level-mother">
                         Hoogst behaalde onderwijsniveau moeder
                     </label>
-                    <select name="education-level-mother" id="education-level-mother">
+                    <select on-change="onChange" name="education-level-mother" id="education-level-mother">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -168,6 +170,37 @@ class EducationInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'education')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'education-type',
+            'education-level',
+            'education-change',
+            'education-quiter',
+            'education-level-father',
+            'education-level-mother',
+        ]
+
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('education', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 

@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class JusticeInputCollection extends PolymerElement {
     static get template() {
@@ -25,7 +27,7 @@ class JusticeInputCollection extends PolymerElement {
                     <label for="child-suspected-in-crime">
                         Kind in het verleden verdacht geweest van een delict
                     </label>
-                    <select name="child-suspected-in-crime" id="child-suspected-in-crime">
+                    <select on-change="onChange" name="child-suspected-in-crime" id="child-suspected-in-crime">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -42,7 +44,7 @@ class JusticeInputCollection extends PolymerElement {
                     <label for="child-in-halt">
                         Kind in aanraking geweest met bureau HALT voor een delict
                     </label>
-                    <select name="child-in-halt" id="child-in-halt">
+                    <select on-change="onChange" name="child-in-halt" id="child-in-halt">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -59,7 +61,7 @@ class JusticeInputCollection extends PolymerElement {
                     <label for="parents-suspected-in-crime">
                         Vader of moeder verdacht van delict in het verleden
                     </label>
-                    <select name="parents-suspected-in-crime" id="parents-suspected-in-crime">
+                    <select on-change="onChange" name="parents-suspected-in-crime" id="parents-suspected-in-crime">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -76,7 +78,7 @@ class JusticeInputCollection extends PolymerElement {
                     <label for="father-suspected-in-crime">
                         Vader verdacht van delict in het verleden
                     </label>
-                    <select name="father-suspected-in-crime" id="father-suspected-in-crime">
+                    <select on-change="onChange" name="father-suspected-in-crime" id="father-suspected-in-crime">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -93,7 +95,7 @@ class JusticeInputCollection extends PolymerElement {
                     <label for="mother-suspected-in-crime">
                         Moeder verdacht van delict in het verleden
                     </label>
-                    <select name="mother-suspected-in-crime" id="mother-suspected-in-crime">
+                    <select on-change="onChange" name="mother-suspected-in-crime" id="mother-suspected-in-crime">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -107,6 +109,36 @@ class JusticeInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'justice')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'child-suspected-in-crime',
+            'child-in-halt',
+            'parents-suspected-in-crime',
+            'father-suspected-in-crime',
+            'mother-suspected-in-crime',
+        ]
+
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('justice', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 

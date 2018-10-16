@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class RelationalInputCollection extends PolymerElement {
     static get template() {
@@ -25,7 +27,7 @@ class RelationalInputCollection extends PolymerElement {
                     <label for="parents-divorced">
                         Ouders gescheiden
                     </label>
-                    <select name="parents-divorced" id="parents-divorced">
+                    <select on-change="onChange" name="parents-divorced" id="parents-divorced">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -39,6 +41,32 @@ class RelationalInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'relational')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'parents-divorced',
+        ]
+
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('relational', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 

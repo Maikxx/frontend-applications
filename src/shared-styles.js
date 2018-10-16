@@ -41,6 +41,7 @@ $_documentContainer.innerHTML = `
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    max-width: 720px;
                 }
 
                 select {

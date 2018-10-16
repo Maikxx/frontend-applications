@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class HousingInputCollection extends PolymerElement {
     static get template() {
@@ -24,7 +26,7 @@ class HousingInputCollection extends PolymerElement {
                     <label for="home-type">
                         Soort woning
                     </label>
-                    <select name="home-type" id="home-type">
+                    <select on-change="onChange" name="home-type" id="home-type">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -47,7 +49,7 @@ class HousingInputCollection extends PolymerElement {
                     <label for="situational-type">
                         Type huishouden
                     </label>
-                    <select name="situational-type" id="situational-type">
+                    <select on-change="onChange" name="situational-type" id="situational-type">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -82,6 +84,33 @@ class HousingInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'housing')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'home-type',
+            'situational-type',
+        ]
+
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('justice', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 

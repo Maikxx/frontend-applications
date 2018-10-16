@@ -1,5 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
+import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
+import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 
 class SocietyInputCollection extends PolymerElement {
     static get template() {
@@ -25,7 +27,7 @@ class SocietyInputCollection extends PolymerElement {
                     <label for="participation-father">
                         Maatschappelijke participatie van vader
                     </label>
-                    <select name="participation-father" id="participation-father">
+                    <select on-change="onChange" name="participation-father" id="participation-father">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -45,7 +47,7 @@ class SocietyInputCollection extends PolymerElement {
                     <label for="participation-mother">
                         Maatschappelijke participatie van moeder
                     </label>
-                    <select name="participation-mother" id="participation-mother">
+                    <select on-change="onChange" name="participation-mother" id="participation-mother">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -65,7 +67,7 @@ class SocietyInputCollection extends PolymerElement {
                     <label for="socio-status-father">
                         Socio economische status van vader
                     </label>
-                    <select name="socio-status-father" id="socio-status-father">
+                    <select on-change="onChange" name="socio-status-father" id="socio-status-father">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -118,7 +120,7 @@ class SocietyInputCollection extends PolymerElement {
                     <label for="socio-status-mother">
                         Socio economische status van moeder
                     </label>
-                    <select name="socio-status-mother" id="socio-status-mother">
+                    <select on-change="onChange" name="socio-status-mother" id="socio-status-mother">
                         <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
@@ -168,6 +170,34 @@ class SocietyInputCollection extends PolymerElement {
                 </div>
             </fieldset>
         `
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options } = target
+        const { name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'society')
+    }
+
+    ready () {
+        super.ready()
+
+        const endPoints = [
+            'participation-father',
+            'participation-mother',
+            'socio-status-mother',
+            'socio-status-father',
+        ]
+        endPoints.map(endPoint => {
+            const select = this.shadowRoot.getElementById(endPoint)
+            const lsv = getLocalstorageValue('society', endPoint)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
     }
 }
 
