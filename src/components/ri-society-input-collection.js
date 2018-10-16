@@ -26,7 +26,7 @@ class SocietyInputCollection extends PolymerElement {
                         Maatschappelijke participatie van vader
                     </label>
                     <select name="participation-father" id="participation-father">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="job">
@@ -46,7 +46,7 @@ class SocietyInputCollection extends PolymerElement {
                         Maatschappelijke participatie van moeder
                     </label>
                     <select name="participation-mother" id="participation-mother">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="job">
@@ -66,7 +66,7 @@ class SocietyInputCollection extends PolymerElement {
                         Socio economische status van vader
                     </label>
                     <select name="socio-status-father" id="socio-status-father">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="welfare-recipient">
@@ -119,7 +119,7 @@ class SocietyInputCollection extends PolymerElement {
                         Socio economische status van moeder
                     </label>
                     <select name="socio-status-mother" id="socio-status-mother">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="welfare-recipient">

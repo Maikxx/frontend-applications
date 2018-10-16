@@ -43,6 +43,23 @@ $_documentContainer.innerHTML = `
                     align-items: center;
                 }
 
+                select {
+                    border: 1px solid #AAA;
+                    border-radius: 4px;
+                    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+                    color: #555;
+                    font-size: inherit;
+                    margin: 12px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    max-width: 240px;
+                }
+
+                select option[disabled] {
+                    color: grey;
+                }
+
                 .row > * {
                     flex: 2;
                 }

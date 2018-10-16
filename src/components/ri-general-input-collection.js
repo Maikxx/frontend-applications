@@ -25,7 +25,7 @@ class GeneralInputCollection extends PolymerElement {
                         Geslacht
                     </label>
                     <select name="gender" id="gender">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="male">
@@ -42,7 +42,7 @@ class GeneralInputCollection extends PolymerElement {
                         Leeftijd van het kind
                     </label>
                     <select name="age-child" id="age-child">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="0-4">
@@ -68,7 +68,7 @@ class GeneralInputCollection extends PolymerElement {
                         Leeftijd moeder bij geboorte
                     </label>
                     <select name="age-mother" id="age-mother">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="lt20">
@@ -97,7 +97,7 @@ class GeneralInputCollection extends PolymerElement {
                         Leeftijd vader bij geboorte
                     </label>
                     <select name="age-father" id="age-father">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="lt20">
@@ -126,7 +126,7 @@ class GeneralInputCollection extends PolymerElement {
                         Leeftijdsverschil tussen ouders
                     </label>
                     <select name="age-difference-parents" id="age-difference-parents">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="lt5">
@@ -143,7 +143,7 @@ class GeneralInputCollection extends PolymerElement {
                         Herkomst ouders
                     </label>
                     <select name="origin-parents" id="origin-parents">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="dutch">
@@ -163,7 +163,7 @@ class GeneralInputCollection extends PolymerElement {
                         Hulptraject
                     </label>
                     <select name="guidance" id="guidance">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="none">

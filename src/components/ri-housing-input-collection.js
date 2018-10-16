@@ -25,7 +25,7 @@ class HousingInputCollection extends PolymerElement {
                         Soort woning
                     </label>
                     <select name="home-type" id="home-type">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="own-property">
@@ -48,7 +48,7 @@ class HousingInputCollection extends PolymerElement {
                         Type huishouden
                     </label>
                     <select name="situational-type" id="situational-type">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="single-parent">

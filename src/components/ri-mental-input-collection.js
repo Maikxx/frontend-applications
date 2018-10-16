@@ -26,7 +26,7 @@ class MentalInputCollection extends PolymerElement {
                         Als slachtoffer bekend bij slachtofferhulp
                     </label>
                     <select name="known-at-guidance-help" id="known-at-guidance-help">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">

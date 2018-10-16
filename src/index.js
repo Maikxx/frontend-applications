@@ -6,6 +6,7 @@ import '@polymer/app-route/app-location.js'
 import '@polymer/app-route/app-route.js'
 import '@polymer/iron-pages/iron-pages.js'
 import './components/ri-icons.js'
+import '@polymer/iron-selector/iron-selector.js'
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -30,16 +31,40 @@ class MyApp extends PolymerElement {
 
                 app-header {
                     color: #fff;
-                    padding-left: 12px;
+                    padding: 0 12px;
                     background-color: var(--app-primary-color);
+                    overflow-x: scroll;
                 }
 
-                h1 {
-                    font-size: 1.4rem;
+                app-header span {
+                    font-weight: 700;
                 }
 
-                h2 {
-                    font-size: 1.2rem;
+                .toolbar {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 24px;
+                }
+
+                .drawer-list {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                    padding-left: 24px;
+                }
+
+                .drawer-list a {
+                    font-size: 14px;
+                    padding-left: 12px;
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .drawer-list a:hover {
+                    text-decoration: underline;
                 }
             </style>
 
@@ -51,16 +76,56 @@ class MyApp extends PolymerElement {
 
 
             <app-header>
-                <app-toolbar>
-                    <h1 main-title="Jeugdzorg Risico Indicatie Applicatie">
-                        Jeugdzorg Risico Indicatie Applicatie
-                    </h1>
-                    <h2>%</h2>
+                <app-toolbar class="toolbar">
+                    <span>
+                        %
+                    </span>
+                    <nav>
+                        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                            <a name="home" href="[[rootPath]]home">
+                                Uitleg
+                            </a>
+                            <a name="general" href="[[rootPath]]general">
+                                Algemeen
+                            </a>
+                            <a name="education" href="[[rootPath]]education">
+                                Werk & Opleiding
+                            </a>
+                            <a name="housing" href="[[rootPath]]housing">
+                                Huisvesting
+                            </a>
+                            <a name="relational" href="[[rootPath]]relational">
+                                Huiselijke relaties
+                            </a>
+                            <a name="mental" href="[[rootPath]]mental">
+                                Geestelijke gezondheid
+                            </a>
+                            <a name="housing" href="[[rootPath]]housing">
+                                Huisvesting
+                            </a>
+                            <a name="relational" href="[[rootPath]]relational">
+                                Huiselijke relaties
+                            </a>
+                            <a name="society" href="[[rootPath]]society">
+                                Maatschappelijke participatie
+                            </a>
+                            <a name="justice" href="[[rootPath]]justice">
+                                Justitie
+                            </a>
+                        </iron-selector>
+                    </nav>
                 </app-toolbar>
             </app-header>
 
-            <iron-pages selected="[[page]]" attr-for-selected="name" role="div">
+            <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
                 <ri-home name="home"></ri-home>
+                <ri-general name="general"></ri-general>
+                <ri-education name="education"></ri-education>
+                <ri-housing name="housing"></ri-housing>
+                <ri-relational name="relational"></ri-relational>
+                <ri-mental name="mental"></ri-mental>
+                <ri-society name="society"></ri-society>
+                <ri-justice name="justice"></ri-justice>
                 <ri-not-found name="not-found"></ri-not-found>
             </iron-pages>
         `
@@ -91,7 +156,7 @@ class MyApp extends PolymerElement {
         // Show 'home' in that case. And if the page doesn't exist, show 'not-found'.
         if (!page) {
             this.page = 'home'
-        } else if (['home'].indexOf(page) !== -1) {
+        } else if (['home', 'general', 'education', 'housing', 'relational', 'mental', 'society', 'justice'].indexOf(page) !== -1) {
             this.page = page
         } else {
             this.page = 'not-found'
@@ -106,6 +171,27 @@ class MyApp extends PolymerElement {
         switch (page) {
             case 'home':
                 import('./views/ri-home.js')
+                break
+            case 'general':
+                import('./views/ri-general.js')
+                break
+            case 'education':
+                import('./views/ri-education.js')
+                break
+            case 'housing':
+                import('./views/ri-housing.js')
+                break
+            case 'relational':
+                import('./views/ri-relational.js')
+                break
+            case 'mental':
+                import('./views/ri-mental.js')
+                break
+            case 'society':
+                import('./views/ri-society.js')
+                break
+            case 'justice':
+                import('./views/ri-justice.js')
                 break
             case 'not-found':
                 import('./views/ri-notFound.js')

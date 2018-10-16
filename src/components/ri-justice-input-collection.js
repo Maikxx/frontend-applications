@@ -26,7 +26,7 @@ class JusticeInputCollection extends PolymerElement {
                         Kind in het verleden verdacht geweest van een delict
                     </label>
                     <select name="child-suspected-in-crime" id="child-suspected-in-crime">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">
@@ -43,7 +43,7 @@ class JusticeInputCollection extends PolymerElement {
                         Kind in aanraking geweest met bureau HALT voor een delict
                     </label>
                     <select name="child-in-halt" id="child-in-halt">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">
@@ -60,7 +60,7 @@ class JusticeInputCollection extends PolymerElement {
                         Vader of moeder verdacht van delict in het verleden
                     </label>
                     <select name="parents-suspected-in-crime" id="parents-suspected-in-crime">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">
@@ -77,7 +77,7 @@ class JusticeInputCollection extends PolymerElement {
                         Vader verdacht van delict in het verleden
                     </label>
                     <select name="father-suspected-in-crime" id="father-suspected-in-crime">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">
@@ -94,7 +94,7 @@ class JusticeInputCollection extends PolymerElement {
                         Moeder verdacht van delict in het verleden
                     </label>
                     <select name="mother-suspected-in-crime" id="mother-suspected-in-crime">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">

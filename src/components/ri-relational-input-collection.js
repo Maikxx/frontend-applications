@@ -26,7 +26,7 @@ class RelationalInputCollection extends PolymerElement {
                         Ouders gescheiden
                     </label>
                     <select name="parents-divorced" id="parents-divorced">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="yes">

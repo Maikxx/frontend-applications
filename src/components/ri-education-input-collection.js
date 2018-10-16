@@ -25,7 +25,7 @@ class EducationInputCollection extends PolymerElement {
                         Soort onderwijs van kind
                     </label>
                     <select name="education-type" id="education-type">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="regular">
@@ -45,7 +45,7 @@ class EducationInputCollection extends PolymerElement {
                         Huidig onderwijsniveau van kind
                     </label>
                     <select name="education-level" id="education-level">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="basic">
@@ -74,7 +74,7 @@ class EducationInputCollection extends PolymerElement {
                         Verandering in het voortgezet onderwijsniveau
                     </label>
                     <select name="education-change" id="education-change">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="ascent">
@@ -94,7 +94,7 @@ class EducationInputCollection extends PolymerElement {
                         Voortijdig schoolverlater
                     </label>
                     <select name="education-quiter" id="education-quiter">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="ascent">
@@ -120,7 +120,7 @@ class EducationInputCollection extends PolymerElement {
                         Hoogst behaalde onderwijsniveau vader
                     </label>
                     <select name="education-level-father" id="education-level-father">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="vmbo-b">
@@ -146,7 +146,7 @@ class EducationInputCollection extends PolymerElement {
                         Hoogst behaalde onderwijsniveau moeder
                     </label>
                     <select name="education-level-mother" id="education-level-mother">
-                        <option disabled="disabled" selected="selected" value="empty">
+                        <option disabled="disabled" selected="selected" value>
                             Selecteer
                         </option>
                         <option value="vmbo-b">
