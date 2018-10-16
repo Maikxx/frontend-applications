@@ -33,6 +33,14 @@ class MyApp extends PolymerElement {
                     padding-left: 12px;
                     background-color: var(--app-primary-color);
                 }
+
+                h1 {
+                    font-size: 1.4rem;
+                }
+
+                h2 {
+                    font-size: 1.2rem;
+                }
             </style>
 
             <app-location route="{{route}}" url-space-regex="^[[rootPath]]">
