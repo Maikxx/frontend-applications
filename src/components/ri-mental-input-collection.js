@@ -45,16 +45,16 @@ class MentalInputCollection extends PolymerElement {
         `
     }
 
-    ready () {
+    ready() {
         super.ready()
 
-        const endPoints = [
+        const inputNames = [
             'known-at-guidance-help',
        ]
 
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('mental', endPoint)
+        inputNames.map(inputName => {
+            const select = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('mental', inputName)
 
             if (lsv) {
                 select.value = lsv
@@ -62,7 +62,7 @@ class MentalInputCollection extends PolymerElement {
         })
     }
 
-    onChange (event) {
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value

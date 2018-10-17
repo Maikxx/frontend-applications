@@ -174,6 +174,28 @@ class EducationInputCollection extends PolymerElement {
         `
     }
 
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'education-type',
+            'education-level',
+            'education-change',
+            'education-quiter',
+            'education-level-father',
+            'education-level-mother',
+        ]
+
+        inputNames.map(inputName => {
+            const input = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('education', inputName)
+
+            if (lsv) {
+                input.value = lsv
+            }
+        })
+    }
+
     onChange (event) {
         const { target } = event
         const { options, name: inputName } = target
@@ -248,28 +270,6 @@ class EducationInputCollection extends PolymerElement {
         }
 
         triggerRegenerateEvent()
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'education-type',
-            'education-level',
-            'education-change',
-            'education-quiter',
-            'education-level-father',
-            'education-level-mother',
-        ]
-
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('education', endPoint)
-
-            if (lsv) {
-                select.value = lsv
-            }
-        })
     }
 }
 

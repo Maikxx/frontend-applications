@@ -174,7 +174,26 @@ class SocietyInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'participation-father',
+            'participation-mother',
+            'socio-status-mother',
+            'socio-status-father',
+        ]
+        inputNames.map(inputName => {
+            const select = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('society', inputName)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
+    }
+
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
@@ -203,25 +222,6 @@ class SocietyInputCollection extends PolymerElement {
         }
 
         triggerRegenerateEvent()
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'participation-father',
-            'participation-mother',
-            'socio-status-mother',
-            'socio-status-father',
-        ]
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('society', endPoint)
-
-            if (lsv) {
-                select.value = lsv
-            }
-        })
     }
 }
 

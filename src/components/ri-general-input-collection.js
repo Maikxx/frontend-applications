@@ -197,7 +197,32 @@ class GeneralInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'first-name',
+            'last-name',
+            'gender',
+            'age-child',
+            'age-mother',
+            'age-father',
+            'age-difference-parents',
+            'origin-parents',
+            'guidance',
+        ]
+
+        inputNames.map(inputName => {
+            const input = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('general', inputName)
+
+            if (lsv) {
+                input.value = lsv
+            }
+        })
+    }
+
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
@@ -261,36 +286,11 @@ class GeneralInputCollection extends PolymerElement {
         triggerRegenerateEvent()
     }
 
-    onChangeName (event) {
+    onChangeName(event) {
         const { target } = event
         const { value, name: inputName } = target
 
         setNewLocalstorage(inputName, value, 'general')
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'first-name',
-            'last-name',
-            'gender',
-            'age-child',
-            'age-mother',
-            'age-father',
-            'age-difference-parents',
-            'origin-parents',
-            'guidance',
-        ]
-
-        endPoints.map(endPoint => {
-            const input = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('general', endPoint)
-
-            if (lsv) {
-                input.value = lsv
-            }
-        })
     }
 }
 

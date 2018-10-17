@@ -88,7 +88,25 @@ class HousingInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'home-type',
+            'situational-type',
+        ]
+
+        inputNames.map(inputName => {
+            const select = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('housing', inputName)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
+    }
+
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
@@ -128,24 +146,6 @@ class HousingInputCollection extends PolymerElement {
         }
 
         triggerRegenerateEvent()
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'home-type',
-            'situational-type',
-        ]
-
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('housing', endPoint)
-
-            if (lsv) {
-                select.value = lsv
-            }
-        })
     }
 }
 

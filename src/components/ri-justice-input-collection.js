@@ -113,7 +113,28 @@ class JusticeInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'child-suspected-in-crime',
+            'child-in-halt',
+            'parents-suspected-in-crime',
+            'father-suspected-in-crime',
+            'mother-suspected-in-crime',
+        ]
+
+        inputNames.map(inputName => {
+            const select = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('justice', inputName)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
+    }
+
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
@@ -144,27 +165,6 @@ class JusticeInputCollection extends PolymerElement {
         }
 
         triggerRegenerateEvent()
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'child-suspected-in-crime',
-            'child-in-halt',
-            'parents-suspected-in-crime',
-            'father-suspected-in-crime',
-            'mother-suspected-in-crime',
-        ]
-
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('justice', endPoint)
-
-            if (lsv) {
-                select.value = lsv
-            }
-        })
     }
 }
 

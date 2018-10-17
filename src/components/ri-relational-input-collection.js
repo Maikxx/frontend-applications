@@ -45,7 +45,24 @@ class RelationalInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
+    ready() {
+        super.ready()
+
+        const inputNames = [
+            'parents-divorced',
+        ]
+
+        inputNames.map(inputName => {
+            const select = this.shadowRoot.getElementById(inputName)
+            const lsv = getLocalstorageValue('relational', inputName)
+
+            if (lsv) {
+                select.value = lsv
+            }
+        })
+    }
+
+    onChange(event) {
         const { target } = event
         const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
@@ -59,23 +76,6 @@ class RelationalInputCollection extends PolymerElement {
         }
 
         triggerRegenerateEvent()
-    }
-
-    ready () {
-        super.ready()
-
-        const endPoints = [
-            'parents-divorced',
-        ]
-
-        endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('relational', endPoint)
-
-            if (lsv) {
-                select.value = lsv
-            }
-        })
     }
 }
 
