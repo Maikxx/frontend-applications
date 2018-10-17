@@ -107,7 +107,7 @@ class EducationInputCollection extends PolymerElement {
                         <option value="quit">
                             Voortijdig schoolverlaten
                         </option>
-                        <option value="passed">
+                        <option value="graduated">
                             Uit onderwijs met startkwalificatie
                         </option>
                         <option value="irrelevant">
@@ -180,6 +180,74 @@ class EducationInputCollection extends PolymerElement {
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'education')
+
+        if (inputName === 'education-type') {
+            if (selectedValue === 'irregular') {
+                setFactorValue(inputName, -0.33030829)
+            } else if (selectedValue === 'unknown') {
+                setFactorValue(inputName, -0.76956641)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'education-level') {
+            if (selectedValue === 'basic') {
+                setFactorValue(inputName, 0.25231544)
+            } else if (selectedValue === 'vmbo-b') {
+                setFactorValue(inputName, 0.87841913)
+            } else if (selectedValue === 'vmbo-g') {
+                setFactorValue(inputName, 0.56881862)
+            } else if (selectedValue === 'vwo') {
+                setFactorValue(inputName, -0.8356626)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'education-level-father') {
+            if (selectedValue === 'unknown') {
+                setFactorValue(inputName, 0.88463779)
+            } else if (selectedValue === 'vmbo-b') {
+                setFactorValue(inputName, -0.21629522)
+            } else if (selectedValue === 'vmbo-g') {
+                setFactorValue(inputName, 0.67119088)
+            } else if (selectedValue === 'vwo') {
+                setFactorValue(inputName, -12.08994875)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'education-level-father') {
+            if (selectedValue === 'unknown') {
+                setFactorValue(inputName, 0.03655114)
+            } else if (selectedValue === 'vmbo-b') {
+                setFactorValue(inputName, 0.15935901)
+            } else if (selectedValue === 'vmbo-g') {
+                setFactorValue(inputName, 0.03334141)
+            } else if (selectedValue === 'vwo') {
+                setFactorValue(inputName, -13.03161926)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'education-change') {
+            if (selectedValue === 'descent') {
+                setFactorValue(inputName, 0.58732282)
+            } else if (selectedValue === 'unknown') {
+                setFactorValue(inputName, -1.11681655)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'education-quiter') {
+            if (selectedValue === 'irrelevant') {
+                setFactorValue(inputName, 0.38735846)
+            } else if (selectedValue === 'unknown') {
+                setFactorValue(inputName, 0.80563824)
+            } else if (selectedValue === 'graduated') {
+                setFactorValue(inputName, -13.64192657)
+            } else if (selectedValue === 'quit') {
+                setFactorValue(inputName, 0.34683899)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        }
+
+        triggerRegenerateEvent()
     }
 
     ready () {

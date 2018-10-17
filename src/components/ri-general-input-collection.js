@@ -173,7 +173,7 @@ class GeneralInputCollection extends PolymerElement {
                         <option value="none">
                             Geen jeugdhulp zonder verblijf gehad
                         </option>
-                        <option >
+                        <option value="guidance">
                             Jeugdhulp zonder verblijf gehad
                         </option>
                     </select>
@@ -232,6 +232,12 @@ class GeneralInputCollection extends PolymerElement {
                 setFactorValue(inputName, 0.16972268)
             } else if (selectedValue === '1to1') {
                 setFactorValue(inputName, -0.08942976)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'guidance') {
+            if (selectedValue === 'guidance') {
+                setFactorValue(inputName, 1.52773741)
             } else {
                 setFactorValue(inputName, 0)
             }
