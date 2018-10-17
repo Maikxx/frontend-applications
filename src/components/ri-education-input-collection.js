@@ -2,6 +2,8 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class EducationInputCollection extends PolymerElement {
     static get template() {

@@ -1,7 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
-import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class SocietyInputCollection extends PolymerElement {
     static get template() {
@@ -178,6 +179,29 @@ class SocietyInputCollection extends PolymerElement {
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'society')
+
+        if (inputName === 'participation-father') {
+            if (selectedValue === 'jobless') {
+                setFactorValue(inputName, 0.33771646)
+            } else if (selectedValue === 'unknown') {
+                setFactorValue(inputName, 0.23485558)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'participation-mother') {
+            if (selectedValue === 'jobless') {
+                setFactorValue(inputName, 0.36957624)
+            } else if (selectedValue === 'unknown') {
+                setFactorValue(inputName, -0.95012155)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else {
+            // For the other two selects, there are no factors known.
+            setFactorValue(inputName, 0)
+        }
+
+        triggerRegenerateEvent()
     }
 
     ready () {

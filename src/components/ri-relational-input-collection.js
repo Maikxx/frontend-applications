@@ -2,7 +2,8 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
-import { generatePercentage } from '../utils/generatePercentage.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class RelationalInputCollection extends PolymerElement {
     static get template() {
@@ -52,12 +53,12 @@ class RelationalInputCollection extends PolymerElement {
         setNewLocalstorage(inputName, selectedValue, 'relational')
 
         if (selectedValue === 'yes') {
-            window.factorData[window.factorData.findIndex(obj => obj.name === 'parents-divorced')].value = 0.27683414
-            console.log(generatePercentage(window.factorData))
+            setFactorValue(inputName, 0.27683414)
         } else {
-            window.factorData[window.factorData.findIndex(obj => obj.name === 'parents-divorced')].value = 0
-            console.log(generatePercentage(window.factorData))
+            setFactorValue(inputName, 0)
         }
+
+        triggerRegenerateEvent()
     }
 
     ready () {

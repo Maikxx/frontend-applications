@@ -2,6 +2,8 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class GeneralInputCollection extends PolymerElement {
     static get template() {
@@ -186,6 +188,56 @@ class GeneralInputCollection extends PolymerElement {
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'general')
+
+        if (inputName === 'gender') {
+            if (selectedValue === 'male') {
+                setFactorValue(inputName, -0.12610868)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'age-mother') {
+            if (selectedValue === 'lt20') {
+                setFactorValue(inputName, 0.45149781)
+            } else if (selectedValue === '20-25') {
+                setFactorValue(inputName, 0.10851786)
+            } else if (selectedValue === '25-30') {
+                setFactorValue(inputName, 0.08840876)
+            } else if (selectedValue === '35-40') {
+                setFactorValue(inputName, 0.23987545)
+            } else if (selectedValue === 'gte40') {
+                setFactorValue(inputName, -0.11153052)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'age-father') {
+            if (selectedValue === 'lt20') {
+                setFactorValue(inputName, -0.00587023)
+            } else if (selectedValue === '25-30') {
+                setFactorValue(inputName, 0.031069)
+            } else if (selectedValue === '35-40') {
+                setFactorValue(inputName, -0.2162358)
+            } else if (selectedValue === 'gte40') {
+                setFactorValue(inputName, -0.32645414)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'age-difference-parents') {
+            if (selectedValue === 'gt5') {
+                setFactorValue(inputName, 0.28580939)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        } else if (inputName === 'origin-parents') {
+            if (selectedValue === 'foreign') {
+                setFactorValue(inputName, 0.16972268)
+            } else if (selectedValue === '1to1') {
+                setFactorValue(inputName, -0.08942976)
+            } else {
+                setFactorValue(inputName, 0)
+            }
+        }
+
+        triggerRegenerateEvent()
     }
 
     ready () {

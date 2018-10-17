@@ -3,6 +3,7 @@ import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
 import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class MentalInputCollection extends PolymerElement {
     static get template() {
@@ -73,6 +74,8 @@ class MentalInputCollection extends PolymerElement {
         } else {
             setFactorValue(inputName, 0)
         }
+
+        triggerRegenerateEvent()
     }
 }
 
