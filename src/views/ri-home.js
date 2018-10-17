@@ -18,7 +18,7 @@ class HomeView extends PolymerElement {
                 }
 
                 h1 + span {
-                    font-size: 14px;
+                    font-size: 0.9rem;
                     display: inline-block;
                     font-style: italic;
                     max-width: 480px;
@@ -27,14 +27,16 @@ class HomeView extends PolymerElement {
                 ol {
                     list-style: none;
                     padding: 0;
+                    font-size: 0.9rem;
                 }
 
                 h2 {
                     margin-bottom: 12px;
+                    font-size: 1.3rem;
                 }
 
                 p {
-                    font-size: 14px;
+                    font-size: 0.9rem;
                     max-width: 480px;
                 }
 
@@ -58,7 +60,7 @@ class HomeView extends PolymerElement {
                     color: #fff;
                     background-color: var(--app-tertiary-color);
                     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-                    font-size: 14px;
+                    font-size: 0.9rem;
                     font-weight: 500;
                     line-height: 36px;
                     overflow: hidden;
