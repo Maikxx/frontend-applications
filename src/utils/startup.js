@@ -1,6 +1,6 @@
 export const startup = () => {
     const data = window.localStorage.getItem('data') || []
-    const factorData = window.localStorage.getItem('factorData') || []
+    const nameFactorCombinations = window.localStorage.getItem('nameFactorCombinations') || []
 
     if (!data.length > 0) {
         const startData = [
@@ -54,8 +54,8 @@ export const startup = () => {
         window.localStorage.setItem('data', JSON.stringify(startData))
     }
 
-    if (!factorData.length > 0) {
-        window.factorData = [
+    if (!nameFactorCombinations.length > 0) {
+        window.nameFactorCombinations = [
             {
                 name: 'education-type',
                 value: 0,
@@ -171,13 +171,13 @@ export const startup = () => {
         ]
 
         try {
-            window.localStorage.setItem('factorData', JSON.stringify(window.factorData))
+            window.localStorage.setItem('nameFactorCombinations', JSON.stringify(window.nameFactorCombinations))
         } catch (error) {
             throw new Error(error)
         }
     } else {
         try {
-            window.factorData = JSON.parse(window.localStorage.getItem('factorData'))
+            window.nameFactorCombinations = JSON.parse(window.localStorage.getItem('nameFactorCombinations'))
         } catch (error) {
             throw new Error(error)
         }

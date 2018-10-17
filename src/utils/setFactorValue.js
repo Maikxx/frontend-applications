@@ -1,6 +1,7 @@
 export const setFactorValue = (inputName, factor) => {
-    const { factorData } = window || []
-    const factorByInputName = factorData[factorData.findIndex(fd => fd.name === inputName)]
+    const { nameFactorCombinations } = window || []
+    const nameFactorCombinationIndex = nameFactorCombinations.findIndex(nameFactorCombination => nameFactorCombination.name === inputName)
+    const factorByInputName = nameFactorCombinations[nameFactorCombinationIndex]
 
     factorByInputName.value = factor
 }

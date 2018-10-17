@@ -148,7 +148,7 @@ class MyApp extends PolymerElement {
 
     calculatePercentage () {
         try {
-            return generatePercentage(JSON.parse(window.localStorage.getItem('factorData')))
+            return generatePercentage(JSON.parse(window.localStorage.getItem('nameFactorCombinations')))
         } catch (error) {
             throw new Error(error)
         }
@@ -156,7 +156,7 @@ class MyApp extends PolymerElement {
 
     ready() {
         super.ready()
-        document.addEventListener('regenerateFactorData', () => {
+        document.addEventListener('regenerateNameFactorCombinations', () => {
             const element = this.shadowRoot.querySelector('.percentage')
 
             const calculatedModifiedPercentage = this.calculatePercentage()
