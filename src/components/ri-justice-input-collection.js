@@ -113,8 +113,7 @@ class JusticeInputCollection extends PolymerElement {
 
     onChange (event) {
         const { target } = event
-        const { options } = target
-        const { name: inputName } = target
+        const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'justice')

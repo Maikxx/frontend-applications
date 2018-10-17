@@ -14,7 +14,7 @@ class EducationInputCollection extends PolymerElement {
 
                 fieldset {
                     border: 0;
-                    padding: 24px 12px;
+                    padding: 24px 0;
                 }
             </style>
 
@@ -174,8 +174,7 @@ class EducationInputCollection extends PolymerElement {
 
     onChange (event) {
         const { target } = event
-        const { options } = target
-        const { name: inputName } = target
+        const { options, name: inputName } = target
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'education')
