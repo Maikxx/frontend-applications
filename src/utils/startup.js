@@ -45,8 +45,8 @@ export const startup = () => {
                 'society': {
                     'participation-father': '',
                     'participation-mother': '',
-                    'socio-father': '',
-                    'socio-mother': '',
+                    'socio-status-father': '',
+                    'socio-status-mother': '',
                 }
             }
         ]
@@ -161,11 +161,11 @@ export const startup = () => {
                 value: 0,
             },
             {
-                name: 'socio-father',
+                name: 'socio-status-father',
                 value: 0,
             },
             {
-                name: 'socio-mother',
+                name: 'socio-status-mother',
                 value: 0,
             },
         ]
