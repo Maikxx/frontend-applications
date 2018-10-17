@@ -1,8 +1,8 @@
 export const getLocalstorageValue = (storageKey, storageIndex) => {
-    const data = window.localStorage.getItem('data')
+    const prefillData = window.localStorage.getItem('prefillData')
 
     try {
-        const parsedData = JSON.parse(data)
+        const parsedData = JSON.parse(prefillData)
         return parsedData[0][storageKey][storageIndex]
     } catch (error) {
         throw new Error(error)

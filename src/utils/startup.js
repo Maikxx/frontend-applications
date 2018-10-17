@@ -1,9 +1,9 @@
 export const startup = () => {
-    const data = window.localStorage.getItem('data') || []
+    const prefillData = window.localStorage.getItem('prefillData') || []
     const nameFactorCombinations = window.localStorage.getItem('nameFactorCombinations') || []
 
-    if (!data.length > 0) {
-        const startData = [
+    if (!prefillData.length > 0) {
+        const startPrefillData = [
             {
                 'id': '1',
                 'education': {
@@ -51,7 +51,7 @@ export const startup = () => {
             }
         ]
 
-        window.localStorage.setItem('data', JSON.stringify(startData))
+        window.localStorage.setItem('prefillData', JSON.stringify(startPrefillData))
     }
 
     if (!nameFactorCombinations.length > 0) {

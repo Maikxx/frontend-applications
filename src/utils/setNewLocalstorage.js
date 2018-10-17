@@ -1,10 +1,10 @@
 export const setNewLocalstorage = (inputName, selectedValue, storageKey) => {
-    const data = window.localStorage.getItem('data') || []
+    const prefillData = window.localStorage.getItem('prefillData') || []
 
     try {
-        const parsedData = JSON.parse(data)
+        const parsedData = JSON.parse(prefillData)
         parsedData[0][storageKey][inputName] = selectedValue
-        window.localStorage.setItem('data', JSON.stringify(parsedData))
+        window.localStorage.setItem('prefillData', JSON.stringify(parsedData))
     }
     catch (error) {
         throw new Error(error)
