@@ -2,7 +2,8 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
-// import { generatePercentage } from '../utils/generatePercentage.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
+import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 
 class HousingInputCollection extends PolymerElement {
     static get template() {
@@ -96,42 +97,37 @@ class HousingInputCollection extends PolymerElement {
 
         if (inputName === 'home-type') {
             if (selectedValue === 'property-with') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.3840103
+                setFactorValue(inputName, 0.3840103)
             }  else if (selectedValue === 'property-without') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.40420458
+                setFactorValue(inputName, 0.40420458)
             } else if (selectedValue === 'unknown') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 2.40126358)
             } else {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0
+                setFactorValue(inputName, 0)
             }
         } else if (inputName === 'situational-type') {
             if (selectedValue === 'single-parent') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.3840103
-            }  else if (selectedValue === 'married-with-children') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.40420458
+                setFactorValue(inputName, 0.49608469)
             } else if (selectedValue === 'single-person') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 1.7185851)
             } else if (selectedValue === 'married-without-children') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 1.06108193)
             } else if (selectedValue === 'institutional') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 1.92321053)
             } else if (selectedValue === 'not-married-without-children') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, -14.15530169)
             } else if (selectedValue === 'other') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 0.91364613)
             } else if (selectedValue === 'unknown') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, -13.81002181)
             } else if (selectedValue === 'not-married-with-children') {
-                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+                setFactorValue(inputName, 0.32693636)
+            } else {
+                setFactorValue(inputName, 0)
             }
         }
 
-        try {
-            window.localStorage.setItem('factorData', JSON.stringify(window.factorData))
-            document.dispatchEvent(new Event('regenerateFactorData'))
-        } catch (error) {
-            throw new Error(error)
-        }
+        triggerRegenerateEvent()
     }
 
     ready () {

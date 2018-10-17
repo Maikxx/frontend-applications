@@ -81,7 +81,7 @@ class MyApp extends PolymerElement {
             <app-header>
                 <app-toolbar class="toolbar">
                     <span class="percentage">
-                        [[calculateNewPercentage()]]%
+                        [[calculatePercentage()]]%
                     </span>
                     <nav>
                         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
@@ -146,7 +146,7 @@ class MyApp extends PolymerElement {
         ]
     }
 
-    calculateNewPercentage () {
+    calculatePercentage () {
         try {
             return generatePercentage(JSON.parse(window.localStorage.getItem('factorData')))
         } catch (error) {
@@ -158,7 +158,9 @@ class MyApp extends PolymerElement {
         super.ready()
         document.addEventListener('regenerateFactorData', () => {
             const element = this.shadowRoot.querySelector('.percentage')
-            element.textContent = `${generatePercentage(JSON.parse(window.localStorage.getItem('factorData')))}%`
+
+            const calculatedModifiedPercentage = this.calculatePercentage()
+            element.textContent = `${calculatedModifiedPercentage}%`
         })
     }
 

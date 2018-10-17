@@ -1,6 +1,6 @@
 export const generatePercentage = (valueArray) => {
     if (!valueArray) {
-        return null
+        return 0
     }
 
     const accumulatedValue = valueArray

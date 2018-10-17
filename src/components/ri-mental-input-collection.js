@@ -2,7 +2,7 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
-import { generatePercentage } from '../utils/generatePercentage.js'
+import { setFactorValue } from '../utils/setFactorValue.js'
 
 class MentalInputCollection extends PolymerElement {
     static get template() {
@@ -44,22 +44,6 @@ class MentalInputCollection extends PolymerElement {
         `
     }
 
-    onChange (event) {
-        const { target } = event
-        const { options, name: inputName } = target
-        const selectedValue = options[target.selectedIndex].value
-
-        setNewLocalstorage(inputName, selectedValue, 'mental')
-
-        if (selectedValue === 'yes') {
-            window.factorData[window.factorData.findIndex(obj => obj.name === 'known-at-guidance-help')].value = 0.23639124
-            console.log(generatePercentage(window.factorData))
-        } else {
-            window.factorData[window.factorData.findIndex(obj => obj.name === 'known-at-guidance-help')].value = 0
-            console.log(generatePercentage(window.factorData))
-        }
-    }
-
     ready () {
         super.ready()
 
@@ -75,6 +59,20 @@ class MentalInputCollection extends PolymerElement {
                 select.value = lsv
             }
         })
+    }
+
+    onChange (event) {
+        const { target } = event
+        const { options, name: inputName } = target
+        const selectedValue = options[target.selectedIndex].value
+
+        setNewLocalstorage(inputName, selectedValue, 'mental')
+
+        if (selectedValue === 'yes') {
+            setFactorValue(inputName, 0.23639124)
+        } else {
+            setFactorValue(inputName, 0)
+        }
     }
 }
 
