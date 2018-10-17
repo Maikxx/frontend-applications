@@ -14,7 +14,7 @@ class JusticeInputCollection extends PolymerElement {
 
                 fieldset {
                     border: 0;
-                    padding: 24px 0;
+                    padding: 24px 12px;
                 }
             </style>
 
