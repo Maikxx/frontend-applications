@@ -54,10 +54,10 @@ class MentalInputCollection extends PolymerElement {
 
         inputNames.map(inputName => {
             const select = this.shadowRoot.getElementById(inputName)
-            const lsv = getLocalstorageValue('mental', inputName)
+            const localStorageValue = getLocalstorageValue('mental', inputName)
 
-            if (lsv) {
-                select.value = lsv
+            if (localStorageValue) {
+                select.value = localStorageValue
             }
         })
     }

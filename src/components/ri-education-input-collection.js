@@ -188,10 +188,10 @@ class EducationInputCollection extends PolymerElement {
 
         inputNames.map(inputName => {
             const input = this.shadowRoot.getElementById(inputName)
-            const lsv = getLocalstorageValue('education', inputName)
+            const localStorageValue = getLocalstorageValue('education', inputName)
 
-            if (lsv) {
-                input.value = lsv
+            if (localStorageValue) {
+                input.value = localStorageValue
             }
         })
     }

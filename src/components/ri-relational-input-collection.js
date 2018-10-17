@@ -54,10 +54,10 @@ class RelationalInputCollection extends PolymerElement {
 
         inputNames.map(inputName => {
             const select = this.shadowRoot.getElementById(inputName)
-            const lsv = getLocalstorageValue('relational', inputName)
+            const localStorageValue = getLocalstorageValue('relational', inputName)
 
-            if (lsv) {
-                select.value = lsv
+            if (localStorageValue) {
+                select.value = localStorageValue
             }
         })
     }

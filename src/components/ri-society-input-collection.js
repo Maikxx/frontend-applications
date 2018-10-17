@@ -185,10 +185,10 @@ class SocietyInputCollection extends PolymerElement {
         ]
         inputNames.map(inputName => {
             const select = this.shadowRoot.getElementById(inputName)
-            const lsv = getLocalstorageValue('society', inputName)
+            const localStorageValue = getLocalstorageValue('society', inputName)
 
-            if (lsv) {
-                select.value = lsv
+            if (localStorageValue) {
+                select.value = localStorageValue
             }
         })
     }

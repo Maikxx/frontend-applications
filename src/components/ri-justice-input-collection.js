@@ -126,10 +126,10 @@ class JusticeInputCollection extends PolymerElement {
 
         inputNames.map(inputName => {
             const select = this.shadowRoot.getElementById(inputName)
-            const lsv = getLocalstorageValue('justice', inputName)
+            const localStorageValue = getLocalstorageValue('justice', inputName)
 
-            if (lsv) {
-                select.value = lsv
+            if (localStorageValue) {
+                select.value = localStorageValue
             }
         })
     }
