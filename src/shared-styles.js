@@ -44,7 +44,8 @@ $_documentContainer.innerHTML = `
                     max-width: 720px;
                 }
 
-                select {
+                select,
+                input {
                     border: 1px solid #AAA;
                     border-radius: 4px;
                     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -54,7 +55,12 @@ $_documentContainer.innerHTML = `
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                    max-width: 240px;
+                    max-width: 360px;
+                }
+
+                input {
+                    box-sizing: border-box;
+                    padding: 6px 10px;
                 }
 
                 select option[disabled] {

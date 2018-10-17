@@ -24,6 +24,21 @@ class GeneralInputCollection extends PolymerElement {
                 <legend>
                     Algemeen
                 </legend>
+
+                <div class="row">
+                    <label for="first-name">
+                        Voornaam kind
+                    </label>
+                    <input on-change="onChangeName" name="first-name" id="first-name"/>
+                </div>
+
+                <div class="row">
+                    <label for="last-name">
+                        Achternaam kind
+                    </label>
+                    <input on-change="onChangeName" name="last-name" id="last-name"/>
+                </div>
+
                 <div class="row">
                     <label for="gender">
                         Geslacht
@@ -246,10 +261,19 @@ class GeneralInputCollection extends PolymerElement {
         triggerRegenerateEvent()
     }
 
+    onChangeName (event) {
+        const { target } = event
+        const { value, name: inputName } = target
+
+        setNewLocalstorage(inputName, value, 'general')
+    }
+
     ready () {
         super.ready()
 
         const endPoints = [
+            'first-name',
+            'last-name',
             'gender',
             'age-child',
             'age-mother',
@@ -260,11 +284,11 @@ class GeneralInputCollection extends PolymerElement {
         ]
 
         endPoints.map(endPoint => {
-            const select = this.shadowRoot.getElementById(endPoint)
+            const input = this.shadowRoot.getElementById(endPoint)
             const lsv = getLocalstorageValue('general', endPoint)
 
             if (lsv) {
-                select.value = lsv
+                input.value = lsv
             }
         })
     }
