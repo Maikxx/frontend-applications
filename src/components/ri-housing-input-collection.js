@@ -2,6 +2,7 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import '../shared-styles.js'
 import { setNewLocalstorage } from '../utils/setNewLocalstorage.js'
 import { getLocalstorageValue } from '../utils/getLocalstorageValue.js'
+// import { generatePercentage } from '../utils/generatePercentage.js'
 
 class HousingInputCollection extends PolymerElement {
     static get template() {
@@ -92,6 +93,45 @@ class HousingInputCollection extends PolymerElement {
         const selectedValue = options[target.selectedIndex].value
 
         setNewLocalstorage(inputName, selectedValue, 'housing')
+
+        if (inputName === 'home-type') {
+            if (selectedValue === 'property-with') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.3840103
+            }  else if (selectedValue === 'property-without') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.40420458
+            } else if (selectedValue === 'unknown') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0
+            }
+        } else if (inputName === 'situational-type') {
+            if (selectedValue === 'single-parent') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.3840103
+            }  else if (selectedValue === 'married-with-children') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 0.40420458
+            } else if (selectedValue === 'single-person') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'married-without-children') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'institutional') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'not-married-without-children') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'other') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'unknown') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            } else if (selectedValue === 'not-married-with-children') {
+                window.factorData[window.factorData.findIndex(obj => obj.name === inputName)].value = 2.40126358
+            }
+        }
+
+        try {
+            window.localStorage.setItem('factorData', JSON.stringify(window.factorData))
+            document.dispatchEvent(new Event('regenerateFactorData'))
+        } catch (error) {
+            throw new Error(error)
+        }
     }
 
     ready () {

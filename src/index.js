@@ -6,6 +6,8 @@ import '@polymer/app-route/app-location.js'
 import '@polymer/app-route/app-route.js'
 import '@polymer/iron-pages/iron-pages.js'
 import '@polymer/iron-selector/iron-selector.js'
+import { startup } from './utils/startup.js'
+import { generatePercentage } from './utils/generatePercentage.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -15,61 +17,7 @@ setPassiveTouchGestures(true)
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath)
 
-window.addEventListener('load', () => {
-    const data = window.localStorage.getItem('data') || []
-
-    if (!data.length > 0) {
-        const startData = [
-            {
-                'id': '1',
-                'education': {
-                    'education-type': '',
-                    'education-level': '',
-                    'education-change': '',
-                    'education-quiter': '',
-                    'education-level-father': '',
-                    'education-level-mother': '',
-                },
-                'general': {
-                    'first-name': '',
-                    'last-name': '',
-                    'gender': '',
-                    'age-child': '',
-                    'age-mother': '',
-                    'age-father': '',
-                    'age-difference-parents': '',
-                    'origin-parents': '',
-                    'guidance': '',
-                },
-                'housing': {
-                    'home-type': '',
-                    'situational-type': '',
-                },
-                'justice': {
-                    'child-suspected-in-crime': '',
-                    'child-in-halt': '',
-                    'parents-suspected-in-crime': '',
-                    'father-suspected-in-crime': '',
-                    'mother-suspected-in-crime': '',
-                },
-                'relational': {
-                    'parents-divorced': '',
-                },
-                'mental': {
-                    'known-at-guidance-help': '',
-                },
-                'society': {
-                    'participation-father': '',
-                    'participation-mother': '',
-                    'socio-father': '',
-                    'socio-mother': '',
-                }
-            }
-        ]
-
-        window.localStorage.setItem('data', JSON.stringify(startData))
-    }
-})
+window.addEventListener('load', startup)
 
 class MyApp extends PolymerElement {
     static get template() {
@@ -130,11 +78,10 @@ class MyApp extends PolymerElement {
             <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
             </app-route>
 
-
             <app-header>
                 <app-toolbar class="toolbar">
-                    <span>
-                        %
+                    <span class="percentage">
+                        [[calculateNewPercentage()]]%
                     </span>
                     <nav>
                         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
@@ -197,6 +144,22 @@ class MyApp extends PolymerElement {
         return [
             '_routePageChanged(routeData.page)'
         ]
+    }
+
+    calculateNewPercentage () {
+        try {
+            return generatePercentage(JSON.parse(window.localStorage.getItem('factorData')))
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    ready() {
+        super.ready()
+        document.addEventListener('regenerateFactorData', () => {
+            const element = this.shadowRoot.querySelector('.percentage')
+            element.textContent = `${generatePercentage(JSON.parse(window.localStorage.getItem('factorData')))}%`
+        })
     }
 
     _routePageChanged(page) {
