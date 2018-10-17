@@ -105,7 +105,7 @@ class HousingInputCollection extends PolymerElement {
 
         endPoints.map(endPoint => {
             const select = this.shadowRoot.getElementById(endPoint)
-            const lsv = getLocalstorageValue('justice', endPoint)
+            const lsv = getLocalstorageValue('housing', endPoint)
 
             if (lsv) {
                 select.value = lsv
