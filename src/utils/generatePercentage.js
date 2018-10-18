@@ -7,5 +7,6 @@ export const generatePercentage = (nameFactorCombinations) => {
         .map(nameFactorCombination => nameFactorCombination.value)
         .reduce((adder, currentValue) => adder + currentValue, 0)
 
+    // Folkert-Jan
     return Number((1 / (1 + Math.exp(-1 * (-8.57219 + accumulatedValue))) * 100).toFixed(2))
 }
