@@ -93,16 +93,16 @@ However, when there is a deadline, this becomes a major problem.
 * Seperation of Concerns (structure - styling - interaction)
 * Mobile / Tablet modes
 * Quite a few factors and inputs, since they aren't available
-* A way to keep multiple filled in forms (for example of a specific user) and switch between them.
+* A way to keep multiple filled in forms (for example of a specific user) and switch between them
 
 ## What would be added in future versions?
 
 Aside from all of the above (if possible), things that would be added would include:
 
-* A page where the user can see at a glance what he or she filled in, and what factor that answer contains. This could bring more understanding at the person that is using the application.
-* A more thought out routing structure, in order for the user to navigate the application more easily.
-* User signup.
-* A better concepting result (for example, better images of the designs).
+* A page where the user can see at a glance what he or she filled in, and what factor that answer contains. This could bring more understanding at the person that is using the application
+* A more thought out routing structure, in order for the user to navigate the application more easily
+* User signup
+* A better concepting result (for example, better images of the designs)
 
 ## Creator
 
