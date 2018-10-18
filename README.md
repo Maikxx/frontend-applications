@@ -119,10 +119,6 @@ However, I used the following links to make some sense up about Polymer:
 * [Polymer 3 Starter Kit](https://github.com/Polymer/polymer-starter-kit)
 * [Polymer 3 Docs](https://www.polymer-project.org/3.0/docs/devguide/feature-overview)
 
-## Creator
-
-This application is made by [Maikel van Veen](https://github.com/maikxx).
-
 ## License
 
-This repository is licensed as [MIT](LICENSE).
+This repository is licensed as [MIT](LICENSE) by [Maikel van Veen](https://github.com/maikxx), 2018.
