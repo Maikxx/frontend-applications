@@ -9,6 +9,10 @@ This percentage is immediately calculated when you change something in the appli
 
 As for more features, there are none... Read on to know why that is and what I would like to be added in this application.
 
+## Concept
+
+**TODO Friday**
+
 ## Progress
 
 ### Week 1
@@ -94,6 +98,7 @@ However, when there is a deadline, this becomes a major problem.
 * Mobile / Tablet modes
 * Quite a few factors and inputs, since they aren't available
 * A way to keep multiple filled in forms (for example of a specific user) and switch between them
+* Some form fields, like location, an image input.
 
 ## What would be added in future versions?
 
@@ -103,6 +108,16 @@ Aside from all of the above (if possible), things that would be added would incl
 * A more thought out routing structure, in order for the user to navigate the application more easily
 * User signup
 * A better concepting result (for example, better images of the designs)
+* Helped person selection menu.
+* Exporting data of a person.
+
+## PDX (Polymer Developer Experience)
+
+As mentioned before, Polymer has a poor developer experience.
+However, I used the following links to make some sense up about Polymer:
+
+* [Polymer 3 Starter Kit](https://github.com/Polymer/polymer-starter-kit)
+* [Polymer 3 Docs](https://www.polymer-project.org/3.0/docs/devguide/feature-overview)
 
 ## Creator
 
