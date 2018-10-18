@@ -103,3 +103,11 @@ Aside from all of the above (if possible), things that would be added would incl
 * A more thought out routing structure, in order for the user to navigate the application more easily.
 * User signup.
 * A better concepting result (for example, better images of the designs).
+
+## Creator
+
+This application is made by [Maikel van Veen](https://github.com/maikxx).
+
+## License
+
+This repository is licensed as [MIT](LICENSE).
