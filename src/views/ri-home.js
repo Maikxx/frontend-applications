@@ -56,6 +56,7 @@ class HomeView extends PolymerElement {
                     flex-direction: row;
                     justify-content: space-between;
                     margin-top: 48px;
+                    max-width: 480px
                 }
             </style>
 
