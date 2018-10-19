@@ -7,7 +7,7 @@ import '@polymer/app-route/app-route.js'
 import '@polymer/iron-pages/iron-pages.js'
 import '@polymer/iron-selector/iron-selector.js'
 import { startup } from './utils/startup.js'
-import { generatePercentage } from './utils/generatePercentage.js';
+import { generatePercentage } from './utils/generatePercentage.js'
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -165,10 +165,6 @@ class MyApp extends PolymerElement {
     }
 
     _routePageChanged(page) {
-        // Show the corresponding page according to the route.
-        //
-        // If no page was found in the route data, page will be an empty string.
-        // Show 'home' in that case. And if the page doesn't exist, show 'not-found'.
         if (!page) {
             this.page = 'home'
         } else if (['home', 'general', 'education', 'housing', 'relational', 'mental', 'society', 'justice'].indexOf(page) !== -1) {
@@ -179,10 +175,6 @@ class MyApp extends PolymerElement {
     }
 
     _pageChanged(page) {
-        // Import the page component on demand.
-        //
-        // Note: `polymer build` doesn't like string concatenation in the import
-        // statement, so break it up.
         switch (page) {
             case 'home':
                 import('./views/ri-home.js')
