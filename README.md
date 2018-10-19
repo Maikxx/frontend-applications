@@ -154,7 +154,6 @@ However, when there is a deadline, this becomes a major problem.
 
 ## What is Missing?
 
-* Linting
 * A checked build proces
 * TypeScript support
 * Seperation of Concerns (structure - styling - interaction)
