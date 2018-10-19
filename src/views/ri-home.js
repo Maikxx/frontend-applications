@@ -59,7 +59,7 @@ class HomeView extends PolymerElement {
                 <section class="section">
                     <header>
                         <h1>
-                            Jeugdhulp Risico Indicatie Applicatie
+                            Garage2020 Jeugdhulp Risico Indicatie Applicatie
                         </h1>
                         <span>
                             Dit is een applicatie gericht voor hulpverleners om een accurate risico indicatie te krijgen op een uithuisplaatsing.

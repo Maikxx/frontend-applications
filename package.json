@@ -8,8 +8,7 @@
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build",
-    "lint": "polymer lint",
-    "test": "polymer test"
+    "lint": "polymer lint"
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.0-pre.15",
