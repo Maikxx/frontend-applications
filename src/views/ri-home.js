@@ -30,6 +30,10 @@ class HomeView extends PolymerElement {
                     font-size: 0.9rem;
                 }
 
+                li > span {
+                    font-weight: bold;
+                }
+
                 h2 {
                     margin-bottom: 12px;
                     font-size: 1.3rem;
@@ -64,13 +68,13 @@ class HomeView extends PolymerElement {
 
                     <ol>
                         <li>
-                            0 - 2%: Laag risico
+                            0 - 2%: <span>Laag risico</span>
                         </li>
                         <li>
-                            2 - 5%: Gemiddeld risico
+                            2 - 5%: <span>Gemiddeld risico</span>
                         </li>
                         <li>
-                            5% en hoger: Hoog risico
+                            5% en hoger: <span>Hoog risico</span>
                         </li>
                     </ol>
 
