@@ -112,6 +112,7 @@ $_documentContainer.innerHTML = `
 
                 label {
                     font-weight: bold;
+                    font-size: 14px;
                 }
 
                 fieldset {
