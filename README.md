@@ -11,7 +11,32 @@ As for more features, there are none... Read on to know why that is and what I w
 
 ## Concept
 
-**TODO Friday**
+Here you can find my full concept in images. Most of the concept is, as stated above, not in the current application.
+
+### Healtcare worker login screen
+
+![Login screen](docs/loginScreen.jpg)
+![Forgot password](docs/forgotPassword.jpg)
+
+### User selection screen
+
+![User selection screen](docs/userSelection.jpg)
+![User selection active screen](docs/userSelectionActive.jpg)
+
+### Home screen
+
+![Home screen](docs/homeScreen.jpg)
+![Reset modal](docs/resetModal.jpg)
+![Storage modal](docs/storageModal.jpg)
+![Storage modal active](docs/storageModalActive.jpg)
+
+### Form screens
+
+![General form screen](docs/formScreen.jpg)
+
+### Indication calculation overview screen
+
+![Calculation screen](docs/calculationScreen.jpg)
 
 ## Progress
 
