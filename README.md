@@ -80,7 +80,7 @@ I went to the guest speakers talks, this tuesday, where my boss (Peter Peerdeman
 When I had to choose three frameworks, which I would like to learn, I chose:
 * Vue
 * React
-* Polymer.
+* Polymer
 
 When the three spokesmen this tuesday spoke about their personal favorite frameworks, I immediately wanted to learn Vue. It looked really fun to learn and since I already know React, I decided to go with that as a first choice.
 
@@ -96,6 +96,10 @@ I decided to make a risk indication application for the healtcare workers, so th
 In this first week I mainly focussed on getting Polymer to work, which took way longer than expected.
 What I finished after week one, was mainly the structure of the application.
 I had **routing**, **components**, **views** and and some general content.
+
+There was pretty much no custom styling in the application at this point.
+
+I did get to appreciate framework writers their work more right now. For the most part, they do not have any guidance in to writing their own framework.
 
 What I also did in this week, was mainly figuring out a way in which styling could be seperated from the JS.
 Unfortunately, I could not find anything of relevance about this subject, so I decided to give up on that part.
