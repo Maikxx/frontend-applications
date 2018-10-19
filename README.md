@@ -54,6 +54,13 @@ The form fields are shown by category (tab) and shows a indication of the filled
 
 ![Calculation screen](docs/calculationScreen.jpg)
 
+### Log screen
+
+On this screen the user can find all system logs, which may be important to them.
+This can include the exporting of data, the changing of fields etc.
+
+![Log screen](docs/logScreen.jpg)
+
 ## Progress
 
 ### Week 1
