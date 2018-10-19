@@ -158,7 +158,7 @@ However, when there is a deadline, this becomes a major problem.
 
 ## What would be added in future versions?
 
-Aside from all of the above (if possible), things that would be added would include:
+Aside from all of the above (if possible), things that would be added are:
 
 * A page where the user can see at a glance what he or she filled in, and what factor that answer contains. This could bring more understanding at the person that is using the application
 * A more thought out routing structure, in order for the user to navigate the application more easily
