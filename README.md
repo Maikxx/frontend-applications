@@ -2,7 +2,7 @@
 
 ## How to install this app
 
-Before installing you will need an up to date version of **Node.js**.
+Before installing you will need an up to date version of [Node](https://nodejs.org/en/).
 
 Then you can `git clone git@github.com:Maikxx/polymer.git`.
 To install the dependencies, run: `yarn` or `npm install`, whatever you feel like.
