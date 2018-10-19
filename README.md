@@ -20,10 +20,19 @@ Here you can find my full concept in images. Most of the concept is, as stated a
 
 ### User selection screen
 
+The healtcare worker has to select the child they are working with at that moment in time. The children which the healtcare worker works with most are shown at the top.
+
+It is important to note that every action the healthcare worker performs gets logged and shown in the logs screen. This is done for accuracy purposes.
+
+For other occassions, like when a receives a new healthcare worker, all the filled in data will be transferred to that healthcare workers account, so he or she does not have to go through the forms again, unless when there would be reason for that.
+
 ![User selection screen](docs/userSelection.jpg)
 ![User selection active screen](docs/userSelectionActive.jpg)
 
 ### Home screen
+
+This is the page the healthcare worker lands on, once they have logged in and selected a child.
+Here they can reset all the filled in fields for this child and also export the data in excel or pdf format.
 
 ![Home screen](docs/homeScreen.jpg)
 ![Reset modal](docs/resetModal.jpg)
@@ -32,9 +41,16 @@ Here you can find my full concept in images. Most of the concept is, as stated a
 
 ### Form screens
 
+The input fields are located on these screens.
+They are seperated by category and do not require the user to press a button to recalculate the risk percentage.
+Navigation between these pages can be found in the menu at the top of the screen.
+
 ![General form screen](docs/formScreen.jpg)
 
 ### Indication calculation overview screen
+
+On this screen you can view the way the percentage is calculated.
+The form fields are shown by category (tab) and shows a indication of the filled in value from `none` to `extreme`.
 
 ![Calculation screen](docs/calculationScreen.jpg)
 
