@@ -8,24 +8,14 @@ import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 class JusticeInputCollection extends PolymerElement {
     static get template() {
         return html`
-            <style include="shared-styles">
-                legend {
-                    padding-top: 24px;
-                    border-bottom: 2px solid black;
-                }
-
-                fieldset {
-                    border: 0;
-                    padding: 24px 12px;
-                }
-            </style>
+            <style include="shared-styles"></style>
 
             <fieldset>
                 <legend>
                     Justitie
                 </legend>
 
-                <div class="row">
+                <div class="field">
                     <label for="child-suspected-in-crime">
                         Kind in het verleden verdacht geweest van een delict
                     </label>
@@ -42,7 +32,7 @@ class JusticeInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="child-in-halt">
                         Kind in aanraking geweest met bureau HALT voor een delict
                     </label>
@@ -59,7 +49,7 @@ class JusticeInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="parents-suspected-in-crime">
                         Vader of moeder verdacht van delict in het verleden
                     </label>
@@ -76,7 +66,7 @@ class JusticeInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="father-suspected-in-crime">
                         Vader verdacht van delict in het verleden
                     </label>
@@ -93,7 +83,7 @@ class JusticeInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="mother-suspected-in-crime">
                         Moeder verdacht van delict in het verleden
                     </label>

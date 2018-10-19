@@ -15,6 +15,7 @@ class HomeView extends PolymerElement {
 
                 h1 {
                     margin-top: 24px;
+                    margin-bottom: 12px;
                 }
 
                 h1 + span {
@@ -50,8 +51,11 @@ class HomeView extends PolymerElement {
                     font-weight: bold;
                 }
 
-                .button + .button {
-                    margin-left: 24px;
+                footer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-top: 48px;
                 }
             </style>
 

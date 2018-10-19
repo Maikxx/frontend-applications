@@ -8,24 +8,14 @@ import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 class SocietyInputCollection extends PolymerElement {
     static get template() {
         return html`
-            <style include="shared-styles">
-                legend {
-                    padding-top: 24px;
-                    border-bottom: 2px solid black;
-                }
-
-                fieldset {
-                    border: 0;
-                    padding: 24px 12px;
-                }
-            </style>
+            <style include="shared-styles"></style>
 
             <fieldset>
                 <legend>
                     Maatschappelijke participatie
                 </legend>
 
-                <div class="row">
+                <div class="field">
                     <label for="participation-father">
                         Maatschappelijke participatie van vader
                     </label>
@@ -45,7 +35,7 @@ class SocietyInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="participation-mother">
                         Maatschappelijke participatie van moeder
                     </label>
@@ -65,7 +55,7 @@ class SocietyInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="socio-status-father">
                         Socio economische status van vader
                     </label>
@@ -118,7 +108,7 @@ class SocietyInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="socio-status-mother">
                         Socio economische status van moeder
                     </label>

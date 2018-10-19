@@ -8,23 +8,13 @@ import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 class EducationInputCollection extends PolymerElement {
     static get template() {
         return html`
-            <style include="shared-styles">
-                legend {
-                    padding-top: 24px;
-                    border-bottom: 2px solid black;
-                }
-
-                fieldset {
-                    border: 0;
-                    padding: 24px 0;
-                }
-            </style>
+            <style include="shared-styles"></style>
 
             <fieldset>
                 <legend>
                     Werk & opleiding
                 </legend>
-                <div class="row">
+                <div class="field">
                     <label for="education-type">
                         Soort onderwijs van kind
                     </label>
@@ -44,7 +34,7 @@ class EducationInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="education-level">
                         Huidig onderwijsniveau van kind
                     </label>
@@ -73,7 +63,7 @@ class EducationInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="education-change">
                         Verandering in het voortgezet onderwijsniveau
                     </label>
@@ -93,7 +83,7 @@ class EducationInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="education-quiter">
                         Voortijdig schoolverlater
                     </label>
@@ -119,7 +109,7 @@ class EducationInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="education-level-father">
                         Hoogst behaalde onderwijsniveau vader
                     </label>
@@ -145,7 +135,7 @@ class EducationInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="education-level-mother">
                         Hoogst behaalde onderwijsniveau moeder
                     </label>

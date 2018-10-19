@@ -37,11 +37,9 @@ $_documentContainer.innerHTML = `
                     margin: 0;
                 }
 
-                .row {
+                .field {
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    max-width: 720px;
+                    flex-direction: column;
                 }
 
                 select,
@@ -51,28 +49,20 @@ $_documentContainer.innerHTML = `
                     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
                     color: #555;
                     font-size: inherit;
-                    margin: 12px;
+                    margin: 6px 0;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                    max-width: 360px;
+                    padding: 6px 10px;
+                    max-width: 300px;
                 }
 
                 input {
                     box-sizing: border-box;
-                    padding: 6px 10px;
                 }
 
                 select option[disabled] {
                     color: grey;
-                }
-
-                .row > * {
-                    flex: 2;
-                }
-
-                .row > label {
-                    flex: 1;
                 }
 
                 .button {
@@ -112,6 +102,51 @@ $_documentContainer.innerHTML = `
 
                 .button:active {
                     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                }
+
+                legend {
+                    padding-top: 24px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                label {
+                    font-weight: bold;
+                }
+
+                fieldset {
+                    border: 0;
+                    padding: 24px 12px;
+                }
+
+                .field + .field {
+                    margin-top: 24px;
+                }
+
+                @media screen and (min-width: 720px) {
+                    .field {
+                        flex-direction: row;
+                        align-items: center;
+                        max-width: 720px;
+                    }
+
+                    select,
+                    input {
+                        margin: 12px;
+                        max-width: 360px;
+                    }
+
+                    .field > * {
+                        flex: 2;
+                    }
+
+                    .field > label {
+                        flex: 1;
+                    }
+
+                    .field + .field {
+                        margin-top: 12px;
+                    }
                 }
             </style>
         </template>

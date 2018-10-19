@@ -8,24 +8,14 @@ import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 class MentalInputCollection extends PolymerElement {
     static get template() {
         return html`
-            <style include="shared-styles">
-                legend {
-                    padding-top: 24px;
-                    border-bottom: 2px solid black;
-                }
-
-                fieldset {
-                    border: 0;
-                    padding: 24px 12px;
-                }
-            </style>
+            <style include="shared-styles"></style>
 
             <fieldset>
                 <legend>
                     Geestelijke gezondheid
                 </legend>
 
-                <div class="row">
+                <div class="field">
                     <label for="known-at-guidance-help">
                         Als slachtoffer bekend bij slachtofferhulp
                     </label>

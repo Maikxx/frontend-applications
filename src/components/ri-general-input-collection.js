@@ -8,38 +8,28 @@ import { triggerRegenerateEvent } from '../utils/triggerRegenerateEvent.js'
 class GeneralInputCollection extends PolymerElement {
     static get template() {
         return html`
-            <style include="shared-styles">
-                legend {
-                    padding-top: 24px;
-                    border-bottom: 2px solid black;
-                }
-
-                fieldset {
-                    border: 0;
-                    padding: 24px 12px;
-                }
-            </style>
+            <style include="shared-styles"></style>
 
             <fieldset>
                 <legend>
                     Algemeen
                 </legend>
 
-                <div class="row">
+                <div class="field">
                     <label for="first-name">
                         Voornaam kind
                     </label>
                     <input on-change="onChangeName" name="first-name" id="first-name"/>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="last-name">
                         Achternaam kind
                     </label>
                     <input on-change="onChangeName" name="last-name" id="last-name"/>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="gender">
                         Geslacht
                     </label>
@@ -56,7 +46,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="age-child">
                         Leeftijd van het kind
                     </label>
@@ -82,7 +72,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="age-mother">
                         Leeftijd moeder bij geboorte
                     </label>
@@ -111,7 +101,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="age-father">
                         Leeftijd vader bij geboorte
                     </label>
@@ -140,7 +130,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="age-difference-parents">
                         Leeftijdsverschil tussen ouders
                     </label>
@@ -157,7 +147,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="origin-parents">
                         Herkomst ouders
                     </label>
@@ -177,7 +167,7 @@ class GeneralInputCollection extends PolymerElement {
                     </select>
                 </div>
 
-                <div class="row">
+                <div class="field">
                     <label for="guidance">
                         Hulptraject
                     </label>
