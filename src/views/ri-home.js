@@ -51,6 +51,10 @@ class HomeView extends PolymerElement {
                     font-weight: bold;
                 }
 
+                p > span + span {
+                    margin-top: 12px;
+                }
+
                 footer {
                     display: flex;
                     flex-direction: row;
@@ -92,6 +96,9 @@ class HomeView extends PolymerElement {
                         Bovenaan de pagina vind u de navigatie, om tussen de verschillende type formulieren te rouleren.
                         <span>
                             N.b. ga altijd uit van uw eigen verstand en gebruik deze tool enkel als hulpmiddel.
+                        </span>
+                        <span>
+                            Sla vooral de gegevens op, zodra je klaar bent met invullen.
                         </span>
                     </p>
 
