@@ -1,5 +1,13 @@
 # Risk Indication App
 
+## How to install this app
+
+Before installing you will need an up to date version of **Node.js**.
+
+Then you can `git clone git@github.com:Maikxx/polymer.git`.
+To install the dependencies, run: `yarn` or `npm install`, whatever you feel like.
+Then to run the application: `yarn start` or `npm start`.
+
 ## About
 
 This application is focussed around youth healtcare workers. The main goal of this application is to decrease the amount of young people that need to leave their house as a result of threathening situations in and around the household.
