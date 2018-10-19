@@ -14,7 +14,7 @@ This focusses on healtcare workers, that mainly have to deal with youth.
 The main goal of this application is to decrease the amount of young people that need to leave their house as a result of threathening situations in and around the household.
 
 What you can do in this current version:
-*  Calculate a risk indication percentage, by filling in input fields about a certain person. This percentage is immediately calculated when you change something in the application.
+* Calculate a risk indication percentage, by filling in input fields about a certain person. This percentage is immediately calculated when you change something in the application.
 * Reset this percentage.
 
 As for more features, there are none...
