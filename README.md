@@ -10,12 +10,15 @@ Then to run the application: `yarn start` or `npm start`.
 
 ## About
 
-This application is focussed around youth healtcare workers. The main goal of this application is to decrease the amount of young people that need to leave their house as a result of threathening situations in and around the household.
+This focusses on healtcare workers, that mainly have to deal with youth.
+The main goal of this application is to decrease the amount of young people that need to leave their house as a result of threathening situations in and around the household.
 
-What you can do in this current version, is calculate a risk indication percentage, by filling in input fields about a certain person.
-This percentage is immediately calculated when you change something in the application.
+What you can do in this current version:
+*  Calculate a risk indication percentage, by filling in input fields about a certain person. This percentage is immediately calculated when you change something in the application.
+* Reset this percentage.
 
-As for more features, there are none... Read on to know why that is and what I would like to be added in this application.
+As for more features, there are none...
+Read on to know why that is and what I would like to be added in this application.
 
 ## Concept
 
