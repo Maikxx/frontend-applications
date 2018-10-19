@@ -74,6 +74,45 @@ $_documentContainer.innerHTML = `
                 .row > label {
                     flex: 1;
                 }
+
+                .button {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 0 12px;
+                    min-width: 64px;
+                    height: 36px;
+                    vertical-align: middle;
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    color: #fff;
+                    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 36px;
+                    overflow: hidden;
+                    outline: none;
+                    cursor: pointer;
+                    transition: box-shadow 0.2s;
+                }
+
+                .button--main {
+                    background-color: var(--app-primary-color);
+                }
+
+                .button--tertiary {
+                    background-color: var(--app-tertiary-color);
+                }
+
+                .button:hover,
+                .button:focus {
+                    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+                }
+
+                .button:active {
+                    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                }
             </style>
         </template>
     </dom-module>

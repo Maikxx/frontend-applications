@@ -46,36 +46,8 @@ class HomeView extends PolymerElement {
                     font-weight: bold;
                 }
 
-                button {
-                    display: inline-block;
-                    box-sizing: border-box;
-                    border: none;
-                    border-radius: 4px;
-                    padding: 0 12px;
-                    min-width: 64px;
-                    height: 36px;
-                    vertical-align: middle;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    color: #fff;
-                    background-color: var(--app-tertiary-color);
-                    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-                    font-size: 0.9rem;
-                    font-weight: 500;
-                    line-height: 36px;
-                    overflow: hidden;
-                    outline: none;
-                    cursor: pointer;
-                    transition: box-shadow 0.2s;
-                }
-
-                button:hover,
-                button:focus {
-                    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-                }
-
-                button:active {
-                    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                .button + .button {
+                    margin-left: 24px;
                 }
             </style>
 
@@ -115,8 +87,11 @@ class HomeView extends PolymerElement {
                     </p>
 
                     <footer>
-                        <button type="button" on-click="onReset">
+                        <button type="button" on-click="onReset" class="button button--tertiary">
                             Reset alle velden
+                        </button>
+                        <button type="button" class="button button--main">
+                            Gegevens opslaan
                         </button>
                     </footer>
                 </section>
